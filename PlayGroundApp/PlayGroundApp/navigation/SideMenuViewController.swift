@@ -20,7 +20,7 @@ final class SideMenuViewController: UIViewController {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.textColor = .darkText
-        view.text = "Ramo Menu"
+        view.text = "Ramo Playround Menu"
         view.font = .boldSystemFont(ofSize: 20)
         return view
     }()
@@ -39,8 +39,9 @@ final class SideMenuViewController: UIViewController {
     }()
 
     private var sideMenuItems: [SideMenuItem] = [
-        SideMenuItem(icon: nil, name: "Slider", viewController: ContentViewControllerPresentation.embed(SliderViewController(barButtonImage: UIImage(systemName: "line.horizontal.3")))),
-        SideMenuItem(icon: nil, name: "Slider2", viewController: ContentViewControllerPresentation.embed(SliderViewController(barButtonImage: UIImage(systemName: "line.horizontal.3"))))
+        
+        SideMenuItem(icon: UIImage(systemName: "slider.horizontal.below.square.filled.and.square"), name: "Slider", viewController: ContentViewControllerPresentation.embed(SliderViewController(barButtonImage: UIImage(systemName: "line.horizontal.3")))),
+        SideMenuItem(icon: UIImage(systemName: "pencil.line"), name: "Slider2", viewController: ContentViewControllerPresentation.embed(ExampleViewController(barButtonImage: UIImage(systemName: "line.horizontal.3"))))
     ]
     private var leadingConstraint: NSLayoutConstraint!
     private var shadowColor: UIColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 0.5)
@@ -97,7 +98,7 @@ final class SideMenuViewController: UIViewController {
         sideMenuView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         leadingConstraint = sideMenuView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -view.frame.size.width)
         leadingConstraint.isActive = true
-        sideMenuView.widthAnchor.constraint(equalToConstant: view.frame.size.width * 0.5).isActive = true
+        sideMenuView.widthAnchor.constraint(equalToConstant: view.frame.size.width * 0.65).isActive = true
         sideMenuView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         
@@ -106,7 +107,7 @@ final class SideMenuViewController: UIViewController {
         headerView.trailingAnchor.constraint(equalTo: sideMenuView.trailingAnchor).isActive = true
         headerView.heightAnchor.constraint(equalToConstant: 150).isActive = true
         
-        labelHeader.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -10).isActive = true
+        labelHeader.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -20).isActive = true
         labelHeader.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 10).isActive = true
 
         tableView.topAnchor.constraint(equalTo: headerView.bottomAnchor).isActive = true
@@ -116,7 +117,7 @@ final class SideMenuViewController: UIViewController {
     }
 
     private func configureTableView() {
-        tableView.backgroundColor = .lightGray
+        tableView.backgroundColor = .white
         tableView.dataSource = self
         tableView.delegate = self
         tableView.bounces = false
@@ -156,6 +157,9 @@ extension SideMenuViewController: UITableViewDataSource, UITableViewDelegate {
         }
         let item = sideMenuItems[indexPath.row]
         cell.configureCell(icon: item.icon, text: item.name)
+        cell.backgroundColor = .white
+        cell.contentView.backgroundColor = .white
+//        cell.contentView.frame.backgroundColor = .white
         return cell
     }
 
