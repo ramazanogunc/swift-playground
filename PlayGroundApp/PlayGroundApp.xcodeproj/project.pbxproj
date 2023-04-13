@@ -23,9 +23,12 @@
 		328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */; };
 		32DD1D6629E7316F0092F4A5 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */; };
 		32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */; };
+		A210F5AF0AB30200A270252E /* Pods_PlayGroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 093807B76A28DAB5B8CDE7C0 /* Pods_PlayGroundApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		093807B76A28DAB5B8CDE7C0 /* Pods_PlayGroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayGroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		19A003DA53C5401789C3F1AB /* Pods-PlayGroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayGroundApp.release.xcconfig"; path = "Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp.release.xcconfig"; sourceTree = "<group>"; };
 		32721E3229E69E9C00CE376A /* PlayGroundApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayGroundApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32721E3529E69E9C00CE376A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32721E3729E69E9C00CE376A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		C1622D5AF13E8E4F9D737955 /* Pods-PlayGroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayGroundApp.debug.xcconfig"; path = "Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,17 +55,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A210F5AF0AB30200A270252E /* Pods_PlayGroundApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		044C3CC8B93080D2133C1406 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C1622D5AF13E8E4F9D737955 /* Pods-PlayGroundApp.debug.xcconfig */,
+				19A003DA53C5401789C3F1AB /* Pods-PlayGroundApp.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		31B5D015AFE56251743E789E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				093807B76A28DAB5B8CDE7C0 /* Pods_PlayGroundApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		32721E2929E69E9C00CE376A = {
 			isa = PBXGroup;
 			children = (
 				32721E3429E69E9C00CE376A /* PlayGroundApp */,
 				32721E3329E69E9C00CE376A /* Products */,
+				044C3CC8B93080D2133C1406 /* Pods */,
+				31B5D015AFE56251743E789E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -144,9 +169,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32721E4629E69E9C00CE376A /* Build configuration list for PBXNativeTarget "PlayGroundApp" */;
 			buildPhases = (
+				0B8E025B23B306A2F66475C3 /* [CP] Check Pods Manifest.lock */,
 				32721E2E29E69E9C00CE376A /* Sources */,
 				32721E2F29E69E9C00CE376A /* Frameworks */,
 				32721E3029E69E9C00CE376A /* Resources */,
+				F4281EC367DAE4E9CF5D6CBA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -202,6 +229,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0B8E025B23B306A2F66475C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PlayGroundApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F4281EC367DAE4E9CF5D6CBA /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		32721E2E29E69E9C00CE376A /* Sources */ = {
@@ -362,6 +431,7 @@
 		};
 		32721E4729E69E9C00CE376A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C1622D5AF13E8E4F9D737955 /* Pods-PlayGroundApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -389,6 +459,7 @@
 		};
 		32721E4829E69E9C00CE376A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19A003DA53C5401789C3F1AB /* Pods-PlayGroundApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
