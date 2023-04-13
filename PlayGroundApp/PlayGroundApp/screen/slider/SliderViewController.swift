@@ -11,8 +11,23 @@ class SliderViewController: ContentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Slider"
-        view.backgroundColor = .white
+        setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        changeNavigationBarColor(.green)
     }
 
 }
+
+
+// MARK: SETUP VIEWS
+extension SliderViewController {
+    
+    private func setupViews() {
+        title = "Slider"
+        view.backgroundColor = .white
+    }
+    
+}
+

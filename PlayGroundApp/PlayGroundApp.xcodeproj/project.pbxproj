@@ -20,6 +20,7 @@
 		32721E6729E6A09D00CE376A /* SideMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32721E6029E6A09D00CE376A /* SideMenuItemCell.swift */; };
 		32721E6829E6A09D00CE376A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32721E6129E6A09D00CE376A /* SideMenuViewController.swift */; };
 		32721E6929E6A09D00CE376A /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32721E6229E6A09D00CE376A /* ContentViewController.swift */; };
+		328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */; };
 		32DD1D6629E7316F0092F4A5 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */; };
 		32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */; };
 /* End PBXBuildFile section */
@@ -40,6 +41,7 @@
 		32721E6029E6A09D00CE376A /* SideMenuItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuItemCell.swift; path = PlayGroundApp/navigation/SideMenuItemCell.swift; sourceTree = SOURCE_ROOT; };
 		32721E6129E6A09D00CE376A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuViewController.swift; path = PlayGroundApp/navigation/SideMenuViewController.swift; sourceTree = SOURCE_ROOT; };
 		32721E6229E6A09D00CE376A /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewController.swift; path = PlayGroundApp/navigation/ContentViewController.swift; sourceTree = SOURCE_ROOT; };
+		328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -74,6 +76,7 @@
 		32721E3429E69E9C00CE376A /* PlayGroundApp */ = {
 			isa = PBXGroup;
 			children = (
+				328408BC29E8573700D72C92 /* extensions */,
 				32721E5A29E6A08400CE376A /* screen */,
 				32721E3529E69E9C00CE376A /* AppDelegate.swift */,
 				32721E3729E69E9C00CE376A /* SceneDelegate.swift */,
@@ -108,6 +111,14 @@
 				32721E6129E6A09D00CE376A /* SideMenuViewController.swift */,
 			);
 			path = navigaiton;
+			sourceTree = "<group>";
+		};
+		328408BC29E8573700D72C92 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		32DD1D6429E7315E0092F4A5 /* slider */ = {
@@ -200,6 +211,7 @@
 				32721E6929E6A09D00CE376A /* ContentViewController.swift in Sources */,
 				32721E3A29E69E9C00CE376A /* ViewController.swift in Sources */,
 				32721E6429E6A09D00CE376A /* SideMenuDelegate.swift in Sources */,
+				328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */,
 				32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */,
 				32721E6729E6A09D00CE376A /* SideMenuItemCell.swift in Sources */,
 				32721E3629E69E9C00CE376A /* AppDelegate.swift in Sources */,

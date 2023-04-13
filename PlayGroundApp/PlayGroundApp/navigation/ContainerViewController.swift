@@ -30,6 +30,8 @@ final class ContainerViewController: UIViewController {
     }
 
     private func configureView() {
+        // hide navigation bar
+        navigationController?.setNavigationBarHidden(true, animated: false)
         addChildViewControllers()
         configureDelegates()
         configureGestures()

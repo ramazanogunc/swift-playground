@@ -20,7 +20,7 @@ final class SideMenuViewController: UIViewController {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.textColor = .darkText
-        view.text = "Ramo Playround Menu"
+        view.text = "Ramo Playground Menu"
         view.font = .boldSystemFont(ofSize: 20)
         return view
     }()
@@ -41,7 +41,7 @@ final class SideMenuViewController: UIViewController {
     private var sideMenuItems: [SideMenuItem] = [
         
         SideMenuItem(icon: UIImage(systemName: "slider.horizontal.below.square.filled.and.square"), name: "Slider", viewController: ContentViewControllerPresentation.embed(SliderViewController(barButtonImage: UIImage(systemName: "line.horizontal.3")))),
-        SideMenuItem(icon: UIImage(systemName: "pencil.line"), name: "Slider2", viewController: ContentViewControllerPresentation.embed(ExampleViewController(barButtonImage: UIImage(systemName: "line.horizontal.3"))))
+        SideMenuItem(icon: UIImage(systemName: "pencil.line"), name: "Example", viewController: ContentViewControllerPresentation.embed(ExampleViewController(barButtonImage: UIImage(systemName: "line.horizontal.3"))))
     ]
     private var leadingConstraint: NSLayoutConstraint!
     private var shadowColor: UIColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 0.5)
