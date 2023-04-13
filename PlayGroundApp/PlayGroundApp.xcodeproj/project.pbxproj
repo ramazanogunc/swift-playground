@@ -23,6 +23,7 @@
 		328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */; };
 		32DD1D6629E7316F0092F4A5 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */; };
 		32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */; };
+		32E3CA2829E89568003424E6 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3CA2729E89568003424E6 /* SliderCell.swift */; };
 		A210F5AF0AB30200A270252E /* Pods_PlayGroundApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 093807B76A28DAB5B8CDE7C0 /* Pods_PlayGroundApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +48,7 @@
 		328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
+		32E3CA2729E89568003424E6 /* SliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
 		C1622D5AF13E8E4F9D737955 /* Pods-PlayGroundApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayGroundApp.debug.xcconfig"; path = "Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,7 +70,6 @@
 				C1622D5AF13E8E4F9D737955 /* Pods-PlayGroundApp.debug.xcconfig */,
 				19A003DA53C5401789C3F1AB /* Pods-PlayGroundApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -150,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */,
+				32E3CA2729E89568003424E6 /* SliderCell.swift */,
 			);
 			path = slider;
 			sourceTree = "<group>";
@@ -285,6 +287,7 @@
 				32721E6729E6A09D00CE376A /* SideMenuItemCell.swift in Sources */,
 				32721E3629E69E9C00CE376A /* AppDelegate.swift in Sources */,
 				32721E6329E6A09D00CE376A /* SideMenuItem.swift in Sources */,
+				32E3CA2829E89568003424E6 /* SliderCell.swift in Sources */,
 				32721E6529E6A09D00CE376A /* ContainerViewController.swift in Sources */,
 				32DD1D6629E7316F0092F4A5 /* SliderViewController.swift in Sources */,
 				32721E3829E69E9C00CE376A /* SceneDelegate.swift in Sources */,

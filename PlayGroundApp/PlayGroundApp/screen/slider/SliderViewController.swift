@@ -10,11 +10,14 @@ import TinyConstraints
 
 class SliderViewController: ContentViewController {
     
-    let label: UILabel = {
-       let label = UILabel()
-        label.text = "Deneme"
-        label.textColor = .black
-        return label
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        layout.scrollDirection = .horizontal
+        collectionView.isPagingEnabled = true
+        collectionView.register(SliderCell.self, forCellWithReuseIdentifier: "slider_cell")
+        
+        return collectionView
     }()
 
     override func viewDidLoad() {
@@ -30,15 +33,46 @@ class SliderViewController: ContentViewController {
 
 
 // MARK: SETUP VIEWS
-extension SliderViewController {
+extension SliderViewController : UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     private func setupViews() {
         title = "Slider"
         view.backgroundColor = .white
+        setupCollectionView()
+    }
+    
+    private func setupCollectionView() {
+        view.addSubview(collectionView)
+        collectionView.topToSuperview(usingSafeArea: true)
+        collectionView.leadingToSuperview()
+        collectionView.trailingToSuperview()
+        collectionView.bottomToSuperview()
         
-        view.addSubview(label)
-        label.topToSuperview(usingSafeArea: true)
-        label.leadingToSuperview()
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 8
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "slider_cell" , for: indexPath)
+        
+        if cell is SliderCell {
+            cell.backgroundColor = indexPath.row % 2 == 0 ? .blue : .red
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: view.frame.width, height: view.frame.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
     
 }
