@@ -7,8 +7,22 @@
 
 import UIKit
 import TinyConstraints
+import Kingfisher
 
 class SliderCell: UICollectionViewCell {
+    
+    
+    var data: Slider? {
+        didSet {
+            guard let item = data else {return}
+            image.kf.setImage(with:  URL(string: item.imageUrl))
+            
+            let attrText = NSMutableAttributedString(string: "\(item.title)\n\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
+            attrText.append(NSAttributedString(string: item.description, attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)/*, NSAttributedString.Key.foregroundColor: Color.darkGray*/]))
+            txtDesc.attributedText = attrText
+            txtDesc.textAlignment = .center
+        }
+    }
     
     private let image : UIImageView = {
         let image = UIImageView()
@@ -19,12 +33,6 @@ class SliderCell: UICollectionViewCell {
     
     let txtDesc: UITextView = {
         let textView = UITextView()
-        //textView.text = "Ailemizin Arama Motoru Google"
-        //textView.font = UIFont.boldSystemFont (ofSize: 18)
-        let attrText = NSMutableAttributedString(string: "Ailemizin Arama Motoru Google\n\n", attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 18)])
-        attrText.append(NSAttributedString(string: "Internet aramasa, gevrin ipi bilgi dagitami, reklam teknolojileri ve arame motoriara için yetirimler yapon cok uluslu Amerikan anonin sirketidir, internet tabania hirmot us ûrüaler gelistirir.", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14)/*, NSAttributedString.Key.foregroundColor: Color.darkGray*/]))
-        textView.attributedText = attrText
-        
         textView.textAlignment = .center
         //taklayinca klavya golmesini engellemo
         textView.isEditable = false
@@ -52,7 +60,7 @@ class SliderCell: UICollectionViewCell {
         
         imgContainer.addSubview(image)
         image.centerInSuperview()
-        image.heightToSuperview(multiplier: 0.6)
+        image.heightToSuperview(multiplier: 0.4)
         
         
         addSubview(txtDesc)

@@ -10,15 +10,43 @@ import TinyConstraints
 
 class SliderViewController: ContentViewController {
     
-    let collectionView: UICollectionView = {
+    private let viewModel = SliderViewModel()
+    
+    private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .horizontal
         collectionView.isPagingEnabled = true
+        collectionView.isScrollEnabled = true
+        collectionView.isUserInteractionEnabled = true
+        collectionView.alwaysBounceHorizontal = true
         collectionView.register(SliderCell.self, forCellWithReuseIdentifier: "slider_cell")
         
         return collectionView
     }()
+    
+    private let btnNext: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Next", for: .normal)
+        btn.addTarget(self, action: #selector(clickBtnNext), for: .touchUpInside)
+        return btn
+    }()
+    
+    private let pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
+        pageControl.pageIndicatorTintColor = .lightGray
+        pageControl.currentPageIndicatorTintColor = .darkGray
+        return pageControl
+    }()
+    
+    private let btnPrevious: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Previous", for: .normal)
+        btn.addTarget(self, action: #selector(clickBtnPrevious), for: .touchUpInside)
+        return btn
+    }()
+    
+    private let stackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +55,21 @@ class SliderViewController: ContentViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         changeNavigationBarColor(.green)
+    }
+    
+    @objc func clickBtnNext(_ sender: UIButton!) {
+        pageControl.currentPage = (pageControl.currentPage + 1) % pageControl.numberOfPages
+        print(pageControl.currentPage)
+        let newIndex = IndexPath(row: pageControl.currentPage, section: 0)
+        collectionView.scrollToItem(at: newIndex , at: .centeredHorizontally, animated: true)
+    }
+    
+    @objc func clickBtnPrevious(_ sender: UIButton!) {
+        let previousIndex = pageControl.currentPage - 1 == -1 ? pageControl.numberOfPages - 1 : pageControl.currentPage - 1
+        pageControl.currentPage = previousIndex % pageControl.numberOfPages
+        print(pageControl.currentPage)
+        let newIndex = IndexPath(row: pageControl.currentPage, section: 0)
+        collectionView.scrollToItem(at: newIndex , at: .centeredHorizontally, animated: true)
     }
 
 }
@@ -38,32 +81,46 @@ extension SliderViewController : UICollectionViewDataSource, UICollectionViewDel
     private func setupViews() {
         title = "Slider"
         view.backgroundColor = .white
+        setupBottomView()
         setupCollectionView()
     }
     
     private func setupCollectionView() {
         view.addSubview(collectionView)
-        collectionView.topToSuperview(usingSafeArea: true)
+        collectionView.topToSuperview()
         collectionView.leadingToSuperview()
         collectionView.trailingToSuperview()
-        collectionView.bottomToSuperview()
-        
+        collectionView.bottomToTop(of: stackView)
         collectionView.dataSource = self
         collectionView.delegate = self
     }
     
+    private func setupBottomView() {
+        stackView.addArrangedSubview(btnPrevious)
+        stackView.addArrangedSubview(pageControl)
+        stackView.addArrangedSubview(btnNext)
+        stackView.distribution = .fillEqually
+        view.addSubview(stackView)
+        stackView.bottomToSuperview(usingSafeArea: true)
+        stackView.leadingToSuperview()
+        stackView.trailingToSuperview()
+        stackView.height(50)
+        
+        pageControl.numberOfPages = viewModel.pages.count
+        pageControl.currentPage = 0
+        pageControl.sizeToFit()
+        pageControl.layoutIfNeeded()
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
+        return viewModel.pages.count
     }
     
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "slider_cell" , for: indexPath)
-        
-        if cell is SliderCell {
-            cell.backgroundColor = indexPath.row % 2 == 0 ? .blue : .red
-        }
-        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "slider_cell" , for: indexPath) as! SliderCell
+        cell.data = viewModel.pages[indexPath.row]
+
         return cell
     }
     
@@ -75,5 +132,11 @@ extension SliderViewController : UICollectionViewDataSource, UICollectionViewDel
         return 0
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 2
+        pageControl.currentPage = Int(offSet + horizontalCenter) / Int(width)
+    }
 }
 
