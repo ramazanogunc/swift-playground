@@ -58,18 +58,22 @@ class SliderViewController: ContentViewController {
     }
     
     @objc func clickBtnNext(_ sender: UIButton!) {
+        collectionView.isPagingEnabled = false
         pageControl.currentPage = (pageControl.currentPage + 1) % pageControl.numberOfPages
         print(pageControl.currentPage)
-        let newIndex = IndexPath(row: pageControl.currentPage, section: 0)
+        let newIndex = IndexPath(item: pageControl.currentPage, section: 0)
         collectionView.scrollToItem(at: newIndex , at: .centeredHorizontally, animated: true)
+        collectionView.isPagingEnabled = true
     }
     
     @objc func clickBtnPrevious(_ sender: UIButton!) {
+        collectionView.isPagingEnabled = false
         let previousIndex = pageControl.currentPage - 1 == -1 ? pageControl.numberOfPages - 1 : pageControl.currentPage - 1
         pageControl.currentPage = previousIndex % pageControl.numberOfPages
         print(pageControl.currentPage)
         let newIndex = IndexPath(row: pageControl.currentPage, section: 0)
         collectionView.scrollToItem(at: newIndex , at: .centeredHorizontally, animated: true)
+        collectionView.isPagingEnabled = true
     }
 
 }
