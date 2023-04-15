@@ -53,7 +53,7 @@ class SliderViewController: ContentViewController {
         setupViews()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animateanimated: Bool) {
         changeNavigationBarColor(.green)
     }
     
@@ -75,7 +75,17 @@ class SliderViewController: ContentViewController {
         collectionView.scrollToItem(at: newIndex , at: .centeredHorizontally, animated: true)
         collectionView.isPagingEnabled = true
     }
-
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animate(alongsideTransition: {(_) in
+            self.collectionView.collectionViewLayout.invalidateLayout()
+            self.collectionView.isPagingEnabled = false
+            let indexPath = IndexPath(item: self.pageControl.currentPage, section: 0)
+            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        }, completion: { (_) in
+            self.collectionView.isPagingEnabled = true
+        })
+    }
 }
 
 
@@ -135,12 +145,10 @@ extension SliderViewController : UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offSet = scrollView.contentOffset.x
-        let width = scrollView.frame.width
-        let horizontalCenter = width / 2
-        pageControl.currentPage = Int(offSet + horizontalCenter) / Int(width)
+        
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        let x = targetContentOffset.pointee.x
+        pageControl.currentPage = Int(x / view.frame .width)
     }
 }
 
