@@ -11,4 +11,5 @@ struct Slider {
     let imageUrl: String
     let title: String
     let description: String
+    let link: String
 }

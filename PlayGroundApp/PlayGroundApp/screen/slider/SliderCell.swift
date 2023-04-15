@@ -40,6 +40,17 @@ class SliderCell: UICollectionViewCell {
         return textView
     }()
     
+    let btnRedirect: UIButton = {
+        let btn = UIButton(type: .system)
+        btn.setTitle("Open Browser", for: .normal)
+        btn.backgroundColor = UIColor(red :14.0/255, green:122.0/255, blue:254.0/255, alpha:1.0)
+        btn.layer.cornerRadius = 5
+        btn.tintColor = .white
+        btn.setImage(UIImage(systemName: "link"), for: .normal)
+        btn.addTarget(self, action: #selector(clickOpenBroser), for: .touchUpInside)
+        return btn
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -47,6 +58,13 @@ class SliderCell: UICollectionViewCell {
     
     required init?(coder: NSCoder) {
         fatalError("Something went wrong")
+    }
+    
+    @objc private func clickOpenBroser() {
+        guard let data = self.data else {return}
+        if let link = URL(string: data.link) {
+          UIApplication.shared.open(link)
+        }
     }
     
     private func setupViews() {
@@ -68,6 +86,13 @@ class SliderCell: UICollectionViewCell {
         txtDesc.topToBottom(of: imgContainer, offset: 10)
         txtDesc.leadingToSuperview(offset: 30)
         txtDesc.trailingToSuperview(offset: 30)
+        
+        
+        addSubview(btnRedirect)
+        btnRedirect.topToBottom(of: txtDesc, offset: 16)
+        btnRedirect.leading(to: txtDesc)
+        btnRedirect.trailing(to: txtDesc)
+        btnRedirect.centerXToSuperview()
         
     }
     
