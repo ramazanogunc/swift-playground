@@ -77,8 +77,8 @@ class SliderViewController: ContentViewController {
     }
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.collectionView.collectionViewLayout.invalidateLayout()
         coordinator.animate(alongsideTransition: {(_) in
-            self.collectionView.collectionViewLayout.invalidateLayout()
             self.collectionView.isPagingEnabled = false
             let indexPath = IndexPath(item: self.pageControl.currentPage, section: 0)
             self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
