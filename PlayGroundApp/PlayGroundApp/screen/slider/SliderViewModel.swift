@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SliderViewModel {
+class SliderViewModel : BaseViewModel {
     
     let pages = [
         Slider(imageUrl: "https://cdn4.iconfinder.com/data/icons/iconsimple-logotypes/512/github-512.png", title: "Github", description: "lorem ipsum fasfasfa", link: "https://github.com/ramazanogunc"),

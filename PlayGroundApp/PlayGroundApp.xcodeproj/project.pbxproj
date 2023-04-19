@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		325BEC6F29ED25AC001AC2B4 /* ExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 325BEC6E29ED25AC001AC2B4 /* ExampleViewModel.swift */; };
 		32721E3629E69E9C00CE376A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32721E3529E69E9C00CE376A /* AppDelegate.swift */; };
 		32721E3829E69E9C00CE376A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32721E3729E69E9C00CE376A /* SceneDelegate.swift */; };
 		32721E3D29E69E9C00CE376A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32721E3B29E69E9C00CE376A /* Main.storyboard */; };
@@ -20,6 +21,9 @@
 		32721E6829E6A09D00CE376A /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32721E6129E6A09D00CE376A /* SideMenuViewController.swift */; };
 		32721E6929E6A09D00CE376A /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32721E6229E6A09D00CE376A /* ContentViewController.swift */; };
 		328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */; };
+		3287986629EC8DE600C6B2CE /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287986529EC8DE600C6B2CE /* BaseViewModel.swift */; };
+		3287986829EC8EFE00C6B2CE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287986729EC8EFE00C6B2CE /* BaseViewController.swift */; };
+		3287986B29EC94C000C6B2CE /* UILoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287986A29EC94C000C6B2CE /* UILoadingIndicator.swift */; };
 		32B245AD29E9F15400937D21 /* SliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B245AC29E9F15400937D21 /* SliderViewModel.swift */; };
 		32B245B029E9F89D00937D21 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B245AF29E9F89D00937D21 /* Slider.swift */; };
 		32DD1D6629E7316F0092F4A5 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */; };
@@ -31,6 +35,7 @@
 /* Begin PBXFileReference section */
 		093807B76A28DAB5B8CDE7C0 /* Pods_PlayGroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayGroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A003DA53C5401789C3F1AB /* Pods-PlayGroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayGroundApp.release.xcconfig"; path = "Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp.release.xcconfig"; sourceTree = "<group>"; };
+		325BEC6E29ED25AC001AC2B4 /* ExampleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewModel.swift; sourceTree = "<group>"; };
 		32721E3229E69E9C00CE376A /* PlayGroundApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlayGroundApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32721E3529E69E9C00CE376A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32721E3729E69E9C00CE376A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +51,9 @@
 		32721E6129E6A09D00CE376A /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SideMenuViewController.swift; path = PlayGroundApp/navigation/SideMenuViewController.swift; sourceTree = SOURCE_ROOT; };
 		32721E6229E6A09D00CE376A /* ContentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContentViewController.swift; path = PlayGroundApp/navigation/ContentViewController.swift; sourceTree = SOURCE_ROOT; };
 		328408BD29E8575400D72C92 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		3287986529EC8DE600C6B2CE /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		3287986729EC8EFE00C6B2CE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		3287986A29EC94C000C6B2CE /* UILoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadingIndicator.swift; sourceTree = "<group>"; };
 		32B245AC29E9F15400937D21 /* SliderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewModel.swift; sourceTree = "<group>"; };
 		32B245AF29E9F89D00937D21 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +112,7 @@
 		32721E3429E69E9C00CE376A /* PlayGroundApp */ = {
 			isa = PBXGroup;
 			children = (
+				3287986929EC948400C6B2CE /* component */,
 				3287986329EC8C3100C6B2CE /* application */,
 				32B245AE29E9F89100937D21 /* model */,
 				328408BC29E8573700D72C92 /* extensions */,
@@ -119,6 +128,7 @@
 		32721E5A29E6A08400CE376A /* screen */ = {
 			isa = PBXGroup;
 			children = (
+				3287986429EC8D9F00C6B2CE /* base */,
 				32DD1D6929E74B5B0092F4A5 /* example */,
 				32DD1D6429E7315E0092F4A5 /* slider */,
 				32721E5B29E6A08A00CE376A /* navigaiton */,
@@ -157,6 +167,23 @@
 			path = application;
 			sourceTree = "<group>";
 		};
+		3287986429EC8D9F00C6B2CE /* base */ = {
+			isa = PBXGroup;
+			children = (
+				3287986529EC8DE600C6B2CE /* BaseViewModel.swift */,
+				3287986729EC8EFE00C6B2CE /* BaseViewController.swift */,
+			);
+			path = base;
+			sourceTree = "<group>";
+		};
+		3287986929EC948400C6B2CE /* component */ = {
+			isa = PBXGroup;
+			children = (
+				3287986A29EC94C000C6B2CE /* UILoadingIndicator.swift */,
+			);
+			path = component;
+			sourceTree = "<group>";
+		};
 		32B245AE29E9F89100937D21 /* model */ = {
 			isa = PBXGroup;
 			children = (
@@ -179,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */,
+				325BEC6E29ED25AC001AC2B4 /* ExampleViewModel.swift */,
 			);
 			path = example;
 			sourceTree = "<group>";
@@ -302,8 +330,12 @@
 				32721E6429E6A09D00CE376A /* SideMenuDelegate.swift in Sources */,
 				328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */,
 				32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */,
+				325BEC6F29ED25AC001AC2B4 /* ExampleViewModel.swift in Sources */,
 				32721E6729E6A09D00CE376A /* SideMenuItemCell.swift in Sources */,
+				3287986629EC8DE600C6B2CE /* BaseViewModel.swift in Sources */,
 				32721E3629E69E9C00CE376A /* AppDelegate.swift in Sources */,
+				3287986829EC8EFE00C6B2CE /* BaseViewController.swift in Sources */,
+				3287986B29EC94C000C6B2CE /* UILoadingIndicator.swift in Sources */,
 				32B245AD29E9F15400937D21 /* SliderViewModel.swift in Sources */,
 				32721E6329E6A09D00CE376A /* SideMenuItem.swift in Sources */,
 				32E3CA2829E89568003424E6 /* SliderCell.swift in Sources */,

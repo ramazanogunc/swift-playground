@@ -11,6 +11,9 @@ import TinyConstraints
 class SliderViewController: ContentViewController {
     
     private let viewModel = SliderViewModel()
+    override var baseViewModel: BaseViewModel? {
+        return viewModel
+    }
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -50,6 +53,7 @@ class SliderViewController: ContentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureLeftMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
     }
     
@@ -60,7 +64,6 @@ class SliderViewController: ContentViewController {
     @objc func clickBtnNext(_ sender: UIButton!) {
         collectionView.isPagingEnabled = false
         pageControl.currentPage = (pageControl.currentPage + 1) % pageControl.numberOfPages
-        print(pageControl.currentPage)
         let newIndex = IndexPath(item: pageControl.currentPage, section: 0)
         collectionView.scrollToItem(at: newIndex , at: .centeredHorizontally, animated: true)
         collectionView.isPagingEnabled = true
@@ -70,7 +73,6 @@ class SliderViewController: ContentViewController {
         collectionView.isPagingEnabled = false
         let previousIndex = pageControl.currentPage - 1 == -1 ? pageControl.numberOfPages - 1 : pageControl.currentPage - 1
         pageControl.currentPage = previousIndex % pageControl.numberOfPages
-        print(pageControl.currentPage)
         let newIndex = IndexPath(row: pageControl.currentPage, section: 0)
         collectionView.scrollToItem(at: newIndex , at: .centeredHorizontally, animated: true)
         collectionView.isPagingEnabled = true

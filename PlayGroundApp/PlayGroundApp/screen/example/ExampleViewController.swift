@@ -8,9 +8,16 @@
 import UIKit
 
 class ExampleViewController: ContentViewController {
+    
+    
+    private let viewModel = ExampleViewModel()
+    override var baseViewModel: BaseViewModel? {
+        return self.viewModel
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureLeftMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
         
     }
