@@ -8,16 +8,18 @@
 import Foundation
 import UIKit
 
-class ContentViewController: BaseViewController {
+protocol ContentViewControllerProtocol {
+    var delegate: SideMenuDelegate? { get set }
+}
+
+class ContentViewController: BaseViewController, ContentViewControllerProtocol {
     weak var delegate: SideMenuDelegate?
-    var barButtonImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
   
     func configureLeftMenu(_ barButtonImage: UIImage?) {
-        self.barButtonImage = barButtonImage
         let barButtonItem = UIBarButtonItem(image: barButtonImage, style: .plain, target: self, action: #selector(menuTapped))
         barButtonItem.tintColor = .black
         navigationItem.setLeftBarButton(barButtonItem, animated: false)

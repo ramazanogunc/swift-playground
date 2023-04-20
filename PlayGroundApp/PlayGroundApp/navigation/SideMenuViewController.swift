@@ -41,6 +41,7 @@ final class SideMenuViewController: UIViewController {
     private var sideMenuItems: [SideMenuItem] = [
         
         SideMenuItem(icon: UIImage(systemName: "slider.horizontal.below.square.filled.and.square"), name: "Slider", viewController: ContentViewControllerPresentation.embed(SliderViewController())),
+        SideMenuItem(icon: UIImage(systemName: "menucard"), name: "Tabbar", viewController: ContentViewControllerPresentation.embed(TabbarViewController())),
         SideMenuItem(icon: UIImage(systemName: "pencil.line"), name: "Example", viewController: ContentViewControllerPresentation.embed(ExampleViewController()))
     ]
     private var leadingConstraint: NSLayoutConstraint!

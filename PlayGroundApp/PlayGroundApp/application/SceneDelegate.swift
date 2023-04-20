@@ -14,9 +14,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let _ = (scene as? UIWindowScene) else { return }
-        let vc = ContainerViewController(sideMenuViewController: SideMenuViewController(), rootViewController: SliderViewController())
-        let rootNC = UINavigationController(rootViewController: vc)
-        self.window?.rootViewController = rootNC
+        let vc = ContainerViewController(sideMenuViewController: SideMenuViewController(), rootViewController: ExampleViewController())
+        self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
     }
 
