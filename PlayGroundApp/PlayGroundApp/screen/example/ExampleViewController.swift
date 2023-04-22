@@ -40,7 +40,6 @@ class ExampleViewController: ContentViewController {
     
     
     @objc private func clickBtnNext() {
-        print("tıklandı anam")
         let vc = UIViewController()
         vc.view.backgroundColor = .blue
         vc.title = "Deneme"

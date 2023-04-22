@@ -103,6 +103,13 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        let lastItem = self.viewModel.characters.count - 1
+        if indexPath.row == lastItem {
+            viewModel.getData()
+        }
+    }
+    
     
 }
 

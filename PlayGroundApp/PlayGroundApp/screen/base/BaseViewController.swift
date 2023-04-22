@@ -56,7 +56,6 @@ class BaseViewController : UIViewController {
             )
         }
         baseViewModel?.hideLoading = { [weak self] in
-            print("hideLoading")
             guard let self = self else { return }
             self.view.subviews.filter({ $0 is UILoadingIndicator }).forEach({ $0.removeFromSuperview() })
         }

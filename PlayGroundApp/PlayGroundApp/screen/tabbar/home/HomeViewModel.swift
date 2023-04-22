@@ -35,7 +35,9 @@ class HomeViewModel: BaseViewModel {
                 } else {
                     self?.listData?()
                 }
-            case.error(_): break
+            case.error(_):
+                self?.isLastPage = true
+                break
             }
             
         })
