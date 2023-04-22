@@ -13,19 +13,21 @@ class HomeViewModel: BaseViewModel {
     private var isLastPage: Bool = false
     
     
-    var listData: (() -> Void)? = nil
+    var updateTableView: (() -> Void)? = nil
     var emptyData: (() -> Void)? = nil
     
     
     var characters: [Character]  = []
     
-    func getData() {
+    @objc func getData() {
         if isLastPage { return }
         page += 1
         
         showLoading?()
-        client.request(for: GetAllCharactersRequest(page: page), result: { [weak self] result in
+        isLoding = true
+        client.request(for: GetAllCharactersRequest(query: query,page: page), result: { [weak self] result in
             self?.hideLoading?()
+            self?.isLoding = false
             switch(result) {
             case .success(let data):
                 self?.isLastPage = data.info.next == nil
@@ -33,7 +35,7 @@ class HomeViewModel: BaseViewModel {
                 if self?.characters.isEmpty ?? true {
                     self?.emptyData?()
                 } else {
-                    self?.listData?()
+                    self?.updateTableView?()
                 }
             case.error(_):
                 self?.isLastPage = true
@@ -43,4 +45,40 @@ class HomeViewModel: BaseViewModel {
         })
         
     }
-}
+    
+    
+    var timer: Timer?
+    var isLoding = false
+    var query: String = ""
+    
+    
+    func search(_ query: String) {
+        if isLoding {
+            return
+        }
+        timer?.invalidate()
+        
+        if query.isEmpty {
+            self.characters.removeAll()
+            page = 1
+            isLastPage = false
+            self.query = query
+            updateTableView?()
+            getData()
+            return
+        }
+        
+        if query.count < 3 {
+            return
+        }
+        self.characters.removeAll()
+        page = 1
+        isLastPage = false
+        self.query = query
+        updateTableView?()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false) { _ in
+            self.getData()
+        }
+        
+    }
+ }

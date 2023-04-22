@@ -15,7 +15,8 @@ class GetAllCharactersRequest : RequestProtocol {
     
     var parameters: [String: Any] = [:]
         
-    init(page: Int) {
+    init(query: String, page: Int) {
+        parameters["name"] = query
         parameters["page"] = page
     }
     

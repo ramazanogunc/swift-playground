@@ -42,10 +42,14 @@ class HomeViewController: BaseViewController {
         setupViews()
         
         viewModel.getData()
-        viewModel.listData = { [weak self] in
+        viewModel.updateTableView = { [weak self] in
             self?.tableView.reloadData()
 
         }
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.search(searchText)
     }
     
     override func viewWillAppear(_ animated: Bool) {
