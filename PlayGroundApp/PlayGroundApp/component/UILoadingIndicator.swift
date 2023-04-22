@@ -14,7 +14,7 @@ final class UILoadingIndicator: UIView {
     private let activityIndicator: UIActivityIndicatorView
     
     override init(frame: CGRect) {
-        self.activityIndicator = UIActivityIndicatorView(style: .gray)
+        self.activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.tintColor = .white
         activityIndicator.color = .white
         activityIndicator.startAnimating()
