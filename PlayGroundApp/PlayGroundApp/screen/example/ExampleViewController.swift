@@ -29,6 +29,7 @@ class ExampleViewController: ContentViewController {
         super.viewDidLoad()
         self.configureRightMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
+        viewModel.deneme()
         
     }
     

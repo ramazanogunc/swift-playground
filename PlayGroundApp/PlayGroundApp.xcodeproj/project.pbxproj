@@ -28,6 +28,12 @@
 		32AF625E29F3C3FA00BA22B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF625D29F3C3FA00BA22B1 /* HomeViewController.swift */; };
 		32B245AD29E9F15400937D21 /* SliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B245AC29E9F15400937D21 /* SliderViewModel.swift */; };
 		32B245B029E9F89D00937D21 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B245AF29E9F89D00937D21 /* Slider.swift */; };
+		32B7A03129F41D0F00A2C2A9 /* NetworkClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A03029F41D0F00A2C2A9 /* NetworkClient.swift */; };
+		32B7A03429F41DB700A2C2A9 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A03329F41DB700A2C2A9 /* RequestProtocol.swift */; };
+		32B7A03629F422E600A2C2A9 /* RequestType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A03529F422E600A2C2A9 /* RequestType.swift */; };
+		32B7A03829F4230B00A2C2A9 /* NetworkClientResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A03729F4230B00A2C2A9 /* NetworkClientResult.swift */; };
+		32B7A03A29F427B500A2C2A9 /* DenemeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A03929F427B500A2C2A9 /* DenemeRequest.swift */; };
+		32B7A03C29F43EAF00A2C2A9 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B7A03B29F43EAF00A2C2A9 /* Post.swift */; };
 		32DD1D6629E7316F0092F4A5 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */; };
 		32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */; };
 		32E3CA2829E89568003424E6 /* SliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32E3CA2729E89568003424E6 /* SliderCell.swift */; };
@@ -60,6 +66,12 @@
 		32AF625D29F3C3FA00BA22B1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		32B245AC29E9F15400937D21 /* SliderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewModel.swift; sourceTree = "<group>"; };
 		32B245AF29E9F89D00937D21 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
+		32B7A03029F41D0F00A2C2A9 /* NetworkClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClient.swift; sourceTree = "<group>"; };
+		32B7A03329F41DB700A2C2A9 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		32B7A03529F422E600A2C2A9 /* RequestType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestType.swift; sourceTree = "<group>"; };
+		32B7A03729F4230B00A2C2A9 /* NetworkClientResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClientResult.swift; sourceTree = "<group>"; };
+		32B7A03929F427B500A2C2A9 /* DenemeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DenemeRequest.swift; sourceTree = "<group>"; };
+		32B7A03B29F43EAF00A2C2A9 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
 		32DD1D6729E74B450092F4A5 /* ExampleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
 		32E3CA2729E89568003424E6 /* SliderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCell.swift; sourceTree = "<group>"; };
@@ -125,6 +137,7 @@
 		32721E3429E69E9C00CE376A /* PlayGroundApp */ = {
 			isa = PBXGroup;
 			children = (
+				32B7A02D29F41CD200A2C2A9 /* network */,
 				3287986929EC948400C6B2CE /* component */,
 				3287986329EC8C3100C6B2CE /* application */,
 				32B245AE29E9F89100937D21 /* model */,
@@ -212,6 +225,43 @@
 				32B245AF29E9F89D00937D21 /* Slider.swift */,
 			);
 			path = model;
+			sourceTree = "<group>";
+		};
+		32B7A02D29F41CD200A2C2A9 /* network */ = {
+			isa = PBXGroup;
+			children = (
+				32B7A03229F41D9B00A2C2A9 /* core */,
+				32B7A02F29F41CFD00A2C2A9 /* response */,
+				32B7A02E29F41CF100A2C2A9 /* request */,
+				32B7A03029F41D0F00A2C2A9 /* NetworkClient.swift */,
+			);
+			path = network;
+			sourceTree = "<group>";
+		};
+		32B7A02E29F41CF100A2C2A9 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				32B7A03929F427B500A2C2A9 /* DenemeRequest.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		32B7A02F29F41CFD00A2C2A9 /* response */ = {
+			isa = PBXGroup;
+			children = (
+				32B7A03B29F43EAF00A2C2A9 /* Post.swift */,
+			);
+			path = response;
+			sourceTree = "<group>";
+		};
+		32B7A03229F41D9B00A2C2A9 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				32B7A03329F41DB700A2C2A9 /* RequestProtocol.swift */,
+				32B7A03529F422E600A2C2A9 /* RequestType.swift */,
+				32B7A03729F4230B00A2C2A9 /* NetworkClientResult.swift */,
+			);
+			path = core;
 			sourceTree = "<group>";
 		};
 		32DD1D6429E7315E0092F4A5 /* slider */ = {
@@ -351,6 +401,8 @@
 				32721E6929E6A09D00CE376A /* ContentViewController.swift in Sources */,
 				32721E6429E6A09D00CE376A /* SideMenuDelegate.swift in Sources */,
 				328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */,
+				32B7A03829F4230B00A2C2A9 /* NetworkClientResult.swift in Sources */,
+				32B7A03129F41D0F00A2C2A9 /* NetworkClient.swift in Sources */,
 				32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */,
 				325BEC6F29ED25AC001AC2B4 /* ExampleViewModel.swift in Sources */,
 				32AF625E29F3C3FA00BA22B1 /* HomeViewController.swift in Sources */,
@@ -359,6 +411,7 @@
 				32721E3629E69E9C00CE376A /* AppDelegate.swift in Sources */,
 				3224AC9529F1C623003B372C /* TabbarViewController.swift in Sources */,
 				3287986829EC8EFE00C6B2CE /* BaseViewController.swift in Sources */,
+				32B7A03A29F427B500A2C2A9 /* DenemeRequest.swift in Sources */,
 				3287986B29EC94C000C6B2CE /* UILoadingIndicator.swift in Sources */,
 				32B245AD29E9F15400937D21 /* SliderViewModel.swift in Sources */,
 				32721E6329E6A09D00CE376A /* SideMenuItem.swift in Sources */,
@@ -366,9 +419,12 @@
 				32B245B029E9F89D00937D21 /* Slider.swift in Sources */,
 				32721E6529E6A09D00CE376A /* ContainerViewController.swift in Sources */,
 				32DD1D6629E7316F0092F4A5 /* SliderViewController.swift in Sources */,
+				32B7A03429F41DB700A2C2A9 /* RequestProtocol.swift in Sources */,
 				32721E3829E69E9C00CE376A /* SceneDelegate.swift in Sources */,
 				32721E6829E6A09D00CE376A /* SideMenuViewController.swift in Sources */,
+				32B7A03C29F43EAF00A2C2A9 /* Post.swift in Sources */,
 				32721E6629E6A09D00CE376A /* ContentViewControllerPresentation.swift in Sources */,
+				32B7A03629F422E600A2C2A9 /* RequestType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,7 @@ target 'PlayGroundApp' do
   use_frameworks!
   pod "TinyConstraints"
   pod 'Kingfisher', '~> 7.0'
+  pod 'Alamofire'
 
   # Pods for PlayGroundApp
 
