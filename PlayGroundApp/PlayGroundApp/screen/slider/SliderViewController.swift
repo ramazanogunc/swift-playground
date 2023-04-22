@@ -57,7 +57,8 @@ class SliderViewController: ContentViewController {
         setupViews()
     }
     
-    override func viewWillAppear(_ animateanimated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         changeNavigationBarColor(.green)
     }
     
