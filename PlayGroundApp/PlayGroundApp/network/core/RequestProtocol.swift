@@ -8,18 +8,22 @@
 import Foundation
 
 protocol RequestProtocol {
-    
+    var url: String { get }
     var path : String { get }
-    
     var requestType: RequestType { get }
-    
     associatedtype ResponseType: Decodable
+    var parameters: [String: Any] { get }
+    var headers: [String: String] { get }
     
 }
 
 extension RequestProtocol {
     var url: String {
-        return "https://jsonplaceholder.typicode.com/" + path
+        return "https://rickandmortyapi.com/api/"
+    }
+    
+    var fullUrl: String {
+        return "\(url)\(path)"
     }
     
     var parameters: [String: Any] {
@@ -28,6 +32,6 @@ extension RequestProtocol {
     
     var headers: [String: String] {
        return [:]
-   }
+    }
 }
 

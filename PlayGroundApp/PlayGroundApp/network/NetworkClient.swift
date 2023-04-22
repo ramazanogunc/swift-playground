@@ -16,7 +16,8 @@ class NetworkClient {
     
     func request<T : RequestProtocol>(for request: T,
                                       result: @escaping (NetworkClientResult<T.ResponseType>) -> Void) {
-        AF.request(request.url,
+        print(request.fullUrl)
+        AF.request(request.fullUrl,
                    method: getRequestMethod(requestType: request.requestType),
                    parameters: request.parameters,
                    headers: getRequestHeaders(request.headers)

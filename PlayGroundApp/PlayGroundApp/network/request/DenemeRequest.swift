@@ -8,6 +8,7 @@
 import Foundation
 
 class DenemeRequest : RequestProtocol {
+    var url: String = "https://jsonplaceholder.typicode.com/"
     var path: String = "posts/1"
     var requestType: RequestType = .Get
     typealias ResponseType = Post
