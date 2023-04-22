@@ -20,7 +20,7 @@ final class ContainerViewController: UIViewController {
     }
 
 
-    init(sideMenuViewController: SideMenuViewController, rootViewController: ContentViewController) {
+    init(sideMenuViewController: SideMenuViewController, rootViewController: UIViewController) {
         self.sideMenuViewController = sideMenuViewController
         self.rootViewController = rootViewController
         self.navigator = UINavigationController(rootViewController: rootViewController)

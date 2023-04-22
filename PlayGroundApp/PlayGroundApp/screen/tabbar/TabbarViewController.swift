@@ -12,14 +12,15 @@ class TabbarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configureRightMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         clearNavigationBarColor()
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
 
 }
@@ -34,9 +35,8 @@ extension TabbarViewController {
     
     private func setupTabbar() {
         viewControllers = [
-            createNavController(for: UIViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!),
-            createNavController(for: UIViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
-            createNavController(for: UIViewController(), title: NSLocalizedString("Profile", comment: ""), image: UIImage(systemName: "person")!)
+            createNavController(for: HomeViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
+            createNavController(for: HomeViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!)
         ]
     }
     
@@ -49,7 +49,6 @@ extension TabbarViewController {
         navController.tabBarItem.image = image
         navController.navigationBar.prefersLargeTitles = true
         rootViewController.navigationItem.title = title
-        selectedIndex = 1
         return navController
     }
     
