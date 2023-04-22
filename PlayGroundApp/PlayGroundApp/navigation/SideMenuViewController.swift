@@ -85,7 +85,7 @@ final class SideMenuViewController: UIViewController {
     
     private func configureView() {
         view.backgroundColor = .clear
-        view.frame.origin.x = -UIScreen.main.bounds.width
+        view.frame.origin.x = UIScreen.main.bounds.width
 
         addSubviews()
         configureTableView()
