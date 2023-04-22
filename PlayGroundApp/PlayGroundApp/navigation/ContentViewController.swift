@@ -19,10 +19,10 @@ class ContentViewController: BaseViewController, ContentViewControllerProtocol {
         super.viewDidLoad()
     }
   
-    func configureLeftMenu(_ barButtonImage: UIImage?) {
+    func configureRightMenu(_ barButtonImage: UIImage?) {
         let barButtonItem = UIBarButtonItem(image: barButtonImage, style: .plain, target: self, action: #selector(menuTapped))
         barButtonItem.tintColor = .black
-        navigationItem.setLeftBarButton(barButtonItem, animated: false)
+        navigationItem.setRightBarButton(barButtonItem, animated: false)
     }
 
     @objc private func menuTapped() {

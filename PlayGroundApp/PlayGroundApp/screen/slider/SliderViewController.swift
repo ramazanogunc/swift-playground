@@ -53,7 +53,7 @@ class SliderViewController: ContentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configureLeftMenu(UIImage(systemName: "line.horizontal.3"))
+        self.configureRightMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
     }
     

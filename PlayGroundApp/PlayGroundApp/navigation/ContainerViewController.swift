@@ -51,13 +51,13 @@ final class ContainerViewController: UIViewController {
 
     private func configureGestures() {
         let swipeLeftGesture = UISwipeGestureRecognizer(target: self, action: #selector(swipedLeft))
-        swipeLeftGesture.direction = .left
+        swipeLeftGesture.direction = .right
         swipeLeftGesture.cancelsTouchesInView = false
         view.addGestureRecognizer(swipeLeftGesture)
 
         let rightSwipeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(swipedRight))
         rightSwipeGesture.cancelsTouchesInView = false
-        rightSwipeGesture.edges = .left
+        rightSwipeGesture.edges = .right
         view.addGestureRecognizer(rightSwipeGesture)
     }
 

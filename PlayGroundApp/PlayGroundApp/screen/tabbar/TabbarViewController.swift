@@ -12,7 +12,7 @@ class TabbarViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        configureLeftMenu(UIImage(systemName: "line.horizontal.3"))
+//        configureRightMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
         
     }

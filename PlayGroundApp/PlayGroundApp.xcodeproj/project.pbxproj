@@ -25,6 +25,7 @@
 		3287986629EC8DE600C6B2CE /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287986529EC8DE600C6B2CE /* BaseViewModel.swift */; };
 		3287986829EC8EFE00C6B2CE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287986729EC8EFE00C6B2CE /* BaseViewController.swift */; };
 		3287986B29EC94C000C6B2CE /* UILoadingIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3287986A29EC94C000C6B2CE /* UILoadingIndicator.swift */; };
+		32AF625E29F3C3FA00BA22B1 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF625D29F3C3FA00BA22B1 /* HomeViewController.swift */; };
 		32B245AD29E9F15400937D21 /* SliderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B245AC29E9F15400937D21 /* SliderViewModel.swift */; };
 		32B245B029E9F89D00937D21 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32B245AF29E9F89D00937D21 /* Slider.swift */; };
 		32DD1D6629E7316F0092F4A5 /* SliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */; };
@@ -56,6 +57,7 @@
 		3287986529EC8DE600C6B2CE /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		3287986729EC8EFE00C6B2CE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		3287986A29EC94C000C6B2CE /* UILoadingIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILoadingIndicator.swift; sourceTree = "<group>"; };
+		32AF625D29F3C3FA00BA22B1 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		32B245AC29E9F15400937D21 /* SliderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewModel.swift; sourceTree = "<group>"; };
 		32B245AF29E9F89D00937D21 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		32DD1D6529E7316F0092F4A5 /* SliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 		3224AC9329F1C5EC003B372C /* tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				32AF625C29F3C3E700BA22B1 /* home */,
 				3224AC9429F1C623003B372C /* TabbarViewController.swift */,
 			);
 			path = tabbar;
@@ -193,6 +196,14 @@
 				3287986A29EC94C000C6B2CE /* UILoadingIndicator.swift */,
 			);
 			path = component;
+			sourceTree = "<group>";
+		};
+		32AF625C29F3C3E700BA22B1 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				32AF625D29F3C3FA00BA22B1 /* HomeViewController.swift */,
+			);
+			path = home;
 			sourceTree = "<group>";
 		};
 		32B245AE29E9F89100937D21 /* model */ = {
@@ -342,6 +353,7 @@
 				328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */,
 				32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */,
 				325BEC6F29ED25AC001AC2B4 /* ExampleViewModel.swift in Sources */,
+				32AF625E29F3C3FA00BA22B1 /* HomeViewController.swift in Sources */,
 				32721E6729E6A09D00CE376A /* SideMenuItemCell.swift in Sources */,
 				3287986629EC8DE600C6B2CE /* BaseViewModel.swift in Sources */,
 				32721E3629E69E9C00CE376A /* AppDelegate.swift in Sources */,

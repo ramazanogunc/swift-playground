@@ -37,6 +37,8 @@ final class SideMenuViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
+    
+    private let widthRate = 0.65
 
     private var sideMenuItems: [SideMenuItem] = [
         
@@ -45,6 +47,7 @@ final class SideMenuViewController: UIViewController {
         SideMenuItem(icon: UIImage(systemName: "pencil.line"), name: "Example", viewController: ContentViewControllerPresentation.embed(ExampleViewController()))
     ]
     private var leadingConstraint: NSLayoutConstraint!
+    private var trailingConstraint: NSLayoutConstraint!
     private var shadowColor: UIColor = UIColor(red: 33/255, green: 33/255, blue: 33/255, alpha: 0.5)
     weak var delegate: SideMenuDelegate?
     
@@ -62,7 +65,8 @@ final class SideMenuViewController: UIViewController {
         self.view.frame.origin.x = 0
         self.view.backgroundColor = self.shadowColor
         UIView.animate(withDuration: 0.5) {
-            self.leadingConstraint.constant = 0
+            self.trailingConstraint.constant = 0
+//            self.leadingConstraint.constant = 0
             self.view.layoutIfNeeded()
         }
     }
@@ -71,10 +75,11 @@ final class SideMenuViewController: UIViewController {
         let screenSize: CGRect = UIScreen.main.bounds
         self.view.backgroundColor = .clear
         UIView.animate(withDuration: 0.5) {
-            self.leadingConstraint.constant = -screenSize.width
+            self.trailingConstraint.constant = screenSize.width
+//            self.leadingConstraint.constant = -screenSize.width
             self.view.layoutIfNeeded()
         } completion: { _ in
-            self.view.frame.origin.x = -screenSize.width
+            self.view.frame.origin.x = screenSize.width
         }
     }
     
@@ -97,9 +102,11 @@ final class SideMenuViewController: UIViewController {
     
     private func configureConstraints() {
         sideMenuView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        leadingConstraint = sideMenuView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -view.frame.size.width)
-        leadingConstraint.isActive = true
-        sideMenuView.widthAnchor.constraint(equalToConstant: view.frame.size.width * 0.65).isActive = true
+//        leadingConstraint = sideMenuView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -view.frame.size.width)
+//        leadingConstraint.isActive = true
+        trailingConstraint = sideMenuView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: view.frame.size.width)
+        trailingConstraint.isActive = true
+        sideMenuView.widthAnchor.constraint(equalToConstant: view.frame.size.width * widthRate).isActive = true
         sideMenuView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
         
