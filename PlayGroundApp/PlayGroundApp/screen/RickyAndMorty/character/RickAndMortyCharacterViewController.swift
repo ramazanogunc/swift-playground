@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RickAndMortyCharacterViewController: BaseViewController {
+class RickAndMortyCharacterViewController: ContentViewController {
     
     private let viewModel = RickAndMortyCharacterViewModel()
     override var baseViewModel: BaseViewModel? {
@@ -39,6 +39,7 @@ class RickAndMortyCharacterViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.configureRightMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
         
         viewModel.getData()
