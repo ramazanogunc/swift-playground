@@ -34,6 +34,12 @@ class BaseViewController : UIViewController {
         setupBaseViewModel()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        clearNavigationBarColor()
+    }
+    
     
     private func setupBaseViewModel() {
         baseViewModel?.showLoading = { [weak self] in

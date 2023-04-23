@@ -44,7 +44,8 @@ final class SideMenuViewController: UIViewController {
         
         SideMenuItem(icon: UIImage(systemName: "slider.horizontal.below.square.filled.and.square"), name: "Slider", viewController: ContentViewControllerPresentation.embed(SliderViewController())),
         SideMenuItem(icon: UIImage(systemName: "menucard"), name: "Tabbar", viewController: ContentViewControllerPresentation.embed(TabbarViewController())),
-        SideMenuItem(icon: UIImage(systemName: "pencil.line"), name: "Example", viewController: ContentViewControllerPresentation.embed(ExampleViewController()))
+        SideMenuItem(icon: UIImage(systemName: "pencil.line"), name: "Example", viewController: ContentViewControllerPresentation.embed(ExampleViewController())),
+        SideMenuItem(icon: UIImage(systemName: "person"), name: "Ricky And Morty", viewController: ContentViewControllerPresentation.embed(RickAndMortyCharacterViewController()))
     ]
     private var leadingConstraint: NSLayoutConstraint!
     private var trailingConstraint: NSLayoutConstraint!

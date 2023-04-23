@@ -7,7 +7,7 @@
 
 import Foundation
 
-class HomeViewModel: BaseViewModel {
+class RickAndMortyCharacterViewModel: BaseViewModel {
     
     private var page : Int = 0
     private var isLastPage: Bool = false

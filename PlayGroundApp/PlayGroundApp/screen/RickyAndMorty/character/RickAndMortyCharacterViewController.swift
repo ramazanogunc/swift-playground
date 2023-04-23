@@ -7,9 +7,9 @@
 
 import UIKit
 
-class HomeViewController: BaseViewController {
+class RickAndMortyCharacterViewController: BaseViewController {
     
-    private let viewModel = HomeViewModel()
+    private let viewModel = RickAndMortyCharacterViewModel()
     override var baseViewModel: BaseViewModel? {
         return viewModel
     }
@@ -54,7 +54,9 @@ class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationItem.hidesSearchBarWhenScrolling = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,9 +69,10 @@ class HomeViewController: BaseViewController {
 
 
 // MARK: SETUP VIEWS
-extension HomeViewController : UISearchBarDelegate {
+extension RickAndMortyCharacterViewController : UISearchBarDelegate {
     
     private func setupViews() {
+        title = "Characters"
         view.backgroundColor = .white
         self.navigationItem.searchController = search
         
@@ -83,7 +86,7 @@ extension HomeViewController : UISearchBarDelegate {
 }
 
 // MARK: TABLE VIEW
-extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+extension RickAndMortyCharacterViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.characters.count

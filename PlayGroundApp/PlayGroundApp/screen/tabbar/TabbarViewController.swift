@@ -35,8 +35,8 @@ extension TabbarViewController {
     
     private func setupTabbar() {
         viewControllers = [
-            createNavController(for: HomeViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
-            createNavController(for: HomeViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!)
+            createNavController(for: UIViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
+            createNavController(for: UIViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!)
         ]
     }
     
