@@ -49,10 +49,6 @@ class RickAndMortyCharacterViewController: ContentViewController {
         }
     }
     
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.search(searchText)
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -70,7 +66,7 @@ class RickAndMortyCharacterViewController: ContentViewController {
 
 
 // MARK: SETUP VIEWS
-extension RickAndMortyCharacterViewController : UISearchBarDelegate {
+extension RickAndMortyCharacterViewController {
     
     private func setupViews() {
         title = "Characters"
@@ -121,3 +117,11 @@ extension RickAndMortyCharacterViewController: UITableViewDataSource, UITableVie
     
 }
 
+// MARK: SEARCH BAR
+extension RickAndMortyCharacterViewController : UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.search(searchText)
+    }
+    
+}

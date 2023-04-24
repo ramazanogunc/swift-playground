@@ -124,6 +124,7 @@
 		3222B68629F568C500C7AAB6 /* character */ = {
 			isa = PBXGroup;
 			children = (
+				32B7A04B29F4547800A2C2A9 /* CharacterCell.swift */,
 				32AF625D29F3C3FA00BA22B1 /* RickAndMortyCharacterViewController.swift */,
 				32B7A04929F44AEE00A2C2A9 /* RickAndMortyCharacterViewModel.swift */,
 			);
@@ -238,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				3222B68629F568C500C7AAB6 /* character */,
-				32B7A04B29F4547800A2C2A9 /* CharacterCell.swift */,
 			);
 			path = RickyAndMorty;
 			sourceTree = "<group>";
