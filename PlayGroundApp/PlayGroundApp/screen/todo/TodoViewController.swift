@@ -26,6 +26,10 @@ class TodoViewController: ContentViewController {
         super.viewDidLoad()
         self.configureRightMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
+        viewModel.updateCollectionView = { [weak self] in
+            self?.collectionView.reloadData()
+        }
+        viewModel.fetchData()
     
     }
     
@@ -34,6 +38,10 @@ class TodoViewController: ContentViewController {
         super.viewWillAppear(animated)
         clearNavigationBarColor()
     }
+    
+    @objc private func addNewTask(){
+       showAlert()
+   }
 
 }
 
@@ -44,6 +52,11 @@ extension TodoViewController {
     private func setupViews() {
         title = "Todo"
         view.backgroundColor = .white
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+                    barButtonSystemItem: .add,
+                    target: self,
+                    action: #selector(addNewTask)
+                )
         setupCollectionView()
     }
     
@@ -79,4 +92,51 @@ extension TodoViewController : UICollectionViewDelegateFlowLayout, UICollectionV
     
     
 }
+
+// MARK: - Alert Controller
+extension TodoViewController {
+    private func showAlert(task: Todo? = nil, completion: (() -> Void)? = nil) {
+        let title = task != nil ? "Update Todo" : "New Todo"
+        let alert = UIAlertController.createAlertController(withTitle: title)
+        
+        alert.action(task: task) { name in
+            if let task = task, let completion = completion {
+                StorageManager.shared.update(task, newName: name)
+                completion()
+            } else {
+                self.viewModel.save(name: name)
+            }
+        }
+        
+        present(alert, animated: true)
+    }
+}
+
+
+extension UIAlertController {
+    
+    static func createAlertController(withTitle title: String) -> UIAlertController {
+        UIAlertController(title: title, message: "What do you want to do?", preferredStyle: .alert)
+    }
+    
+    func action(task: Todo?, completion: @escaping (String) -> Void) {
+        let saveAction = UIAlertAction(title: "Save", style: .default) { _ in
+            guard let newValue = self.textFields?.first?.text else { return }
+            guard !newValue.isEmpty else { return }
+            completion(newValue)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .destructive)
+        
+        addAction(saveAction)
+        addAction(cancelAction)
+        addTextField { textField in
+            textField.placeholder = "Todo"
+            textField.text = task?.name
+        }
+    }
+}
+
+
+
 

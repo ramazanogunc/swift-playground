@@ -10,10 +10,28 @@ import Foundation
 class TodoViewModel : BaseViewModel {
     
     
-    var todos: [Todo]  = [Todo(name: "Deneme", isCompleted: true),Todo(name: "Deneme2", isCompleted: true),]
+    var todos: [Todo]  = []
     
-    func save() {
-        
+    
+    var updateCollectionView : (()->Void)? = nil
+    
+    
+    func fetchData() {
+        StorageManager.shared.fetchData { result in
+            switch result {
+            case .success(let todos):
+                self.todos = todos
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
+    
+    func save(name: String) {
+        StorageManager.shared.create(name) { todo in
+            self.todos.append(todo)
+            updateCollectionView?()
+        }
     }
     
     func delete() {
