@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		321220942A000667009CCCB8 /* DeleteAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321220932A000667009CCCB8 /* DeleteAlertController.swift */; };
 		3224AC9529F1C623003B372C /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3224AC9429F1C623003B372C /* TabbarViewController.swift */; };
 		323B179629FAE9CB00904B4C /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B179529FAE9CB00904B4C /* CheckBox.swift */; };
 		323B179929FAEC5C00904B4C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B179829FAEC5C00904B4C /* StorageManager.swift */; };
@@ -56,6 +57,7 @@
 /* Begin PBXFileReference section */
 		093807B76A28DAB5B8CDE7C0 /* Pods_PlayGroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayGroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A003DA53C5401789C3F1AB /* Pods-PlayGroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayGroundApp.release.xcconfig"; path = "Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp.release.xcconfig"; sourceTree = "<group>"; };
+		321220932A000667009CCCB8 /* DeleteAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAlertController.swift; sourceTree = "<group>"; };
 		3224AC9429F1C623003B372C /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		323B179529FAE9CB00904B4C /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		323B179829FAEC5C00904B4C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 			children = (
 				3287986A29EC94C000C6B2CE /* UILoadingIndicator.swift */,
 				323B179529FAE9CB00904B4C /* CheckBox.swift */,
+				321220932A000667009CCCB8 /* DeleteAlertController.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				32721E6629E6A09D00CE376A /* ContentViewControllerPresentation.swift in Sources */,
 				32B7A03629F422E600A2C2A9 /* RequestType.swift in Sources */,
 				32B7A04429F444E500A2C2A9 /* Gender.swift in Sources */,
+				321220942A000667009CCCB8 /* DeleteAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

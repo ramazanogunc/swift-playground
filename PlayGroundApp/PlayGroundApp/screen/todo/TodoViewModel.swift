@@ -70,7 +70,10 @@ class TodoViewModel : BaseViewModel {
         updateCollectionView?()
     }
     
-    func delete() {
-        
+    func delete(todo: Todo) {
+        todos.removeAll { $0.id == todo.id }
+        comletedTodos.removeAll { $0.id == todo.id }
+        StorageManager.shared.delete(todo)
+        updateCollectionView?()
     }
 }

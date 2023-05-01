@@ -15,9 +15,38 @@ class TodoViewController: ContentViewController {
         return self.viewModel
     }
     
-    private let collectionView : UICollectionView = {
-        let layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
-        let layout = UICollectionViewCompositionalLayout.list(using: layoutConfig)
+    private lazy var cwLayoutConfig: UICollectionLayoutListConfiguration = {
+        var layoutConfig = UICollectionLayoutListConfiguration(appearance: .insetGrouped)
+        layoutConfig.trailingSwipeActionsConfigurationProvider = { [weak self] (indexPath) in
+//            guard let self = self else { return nil }
+            let todo = self?.viewModel.activeList()[indexPath.row]
+            let actionHandler: UIContextualAction.Handler = { action, view, completion in
+                if let todo = todo {
+                    let alert = DeleteAlertController(onDelete: {
+                        self?.viewModel.delete(todo: todo)
+                        completion(true)
+                    }, onCancel: {
+                        completion(true)
+                    })
+                    self?.present(alert,
+                            animated: true,
+                            completion: nil
+                    )
+                } else {
+                    completion(true)
+                }
+                
+            }
+            let action = UIContextualAction(style: .normal, title: "Delete", handler: actionHandler)
+            action.image = UIImage(systemName: "trash")
+            action.backgroundColor = .red
+            return UISwipeActionsConfiguration(actions: [action])
+        }
+        return layoutConfig
+    }()
+    
+    private lazy var collectionView : UICollectionView = {
+        let layout = UICollectionViewCompositionalLayout.list(using: cwLayoutConfig)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         return collectionView
     }()
