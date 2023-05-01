@@ -21,16 +21,32 @@ class TodoViewController: ContentViewController {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         return collectionView
     }()
+    
+    private let segmentControl : UISegmentedControl = {
+       let sc = UISegmentedControl()
+        sc.insertSegment(withTitle: "Todos", at: 0, animated: true)
+        sc.insertSegment(withTitle: "Comleted", at: 1, animated: true)
+        sc.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
+        sc.selectedSegmentIndex = 0
+        return sc
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureRightMenu(UIImage(systemName: "line.horizontal.3"))
         setupViews()
         viewModel.updateCollectionView = { [weak self] in
+            self?.updateSegmentsTitle()
+           
             self?.collectionView.reloadData()
         }
         viewModel.fetchData()
     
+    }
+    
+    private func updateSegmentsTitle() {
+        self.segmentControl.setTitle("Todos(\(viewModel.todos.count))", forSegmentAt: 0)
+        self.segmentControl.setTitle("Comleted(\(viewModel.comletedTodos.count))", forSegmentAt: 1)
     }
     
     
@@ -42,6 +58,10 @@ class TodoViewController: ContentViewController {
     @objc private func addNewTask(){
        showAlert()
    }
+    
+    @objc private func changeSegment(_ sender: UISegmentedControl) {
+        viewModel.selectedIndex = sender.selectedSegmentIndex
+    }
 
 }
 
@@ -51,19 +71,27 @@ extension TodoViewController {
     
     private func setupViews() {
         title = "Todo"
-        view.backgroundColor = .white
+        view.backgroundColor = collectionView.backgroundColor
         navigationItem.leftBarButtonItem = UIBarButtonItem(
                     barButtonSystemItem: .add,
                     target: self,
                     action: #selector(addNewTask)
                 )
+        setupSegmentControler()
         setupCollectionView()
+    }
+    
+    private func setupSegmentControler() {
+        view.addSubview(segmentControl)
+        segmentControl.topToSuperview(offset: 10, usingSafeArea: true)
+        segmentControl.leadingToSuperview(offset: 16)
+        segmentControl.trailingToSuperview(offset: 16)
     }
     
     private func setupCollectionView() {
         collectionView.register(TodoCell.self, forCellWithReuseIdentifier: "cell")
         view.addSubview(collectionView)
-        collectionView.topToSuperview()
+        collectionView.topToBottom(of: segmentControl, offset: 10)
         collectionView.leadingToSuperview()
         collectionView.trailingToSuperview()
         collectionView.bottomToSuperview()
@@ -74,19 +102,25 @@ extension TodoViewController {
 }
 
 
-extension TodoViewController : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+extension TodoViewController : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, TodoCellDelegate {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.todos.count
+        return viewModel.activeList().count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell" , for: indexPath) as! TodoCell
-        cell.data = viewModel.todos[indexPath.row]
+        cell.data = viewModel.activeList()[indexPath.row]
+        cell.delegate = self
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
+    }
+    
+    func didChangeCompleted(todo: Todo, isCompleted: Bool) {
+        viewModel.updateTodo(todo: todo, isCompleted: isCompleted)
     }
     
     
@@ -101,7 +135,8 @@ extension TodoViewController {
         
         alert.action(task: task) { name in
             if let task = task, let completion = completion {
-                StorageManager.shared.update(task, newName: name)
+                task.name = name
+                StorageManager.shared.update(task)
                 completion()
             } else {
                 self.viewModel.save(name: name)

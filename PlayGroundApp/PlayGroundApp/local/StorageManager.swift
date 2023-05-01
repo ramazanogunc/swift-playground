@@ -34,6 +34,8 @@ class StorageManager {
     // MARK: - Task methods
     func fetchData(completion: (Result<[Todo], Error>)-> Void) {
         let fetchRequest = Todo.fetchRequest()
+//        Filter all with boolan example code
+//        fetchRequest.predicate = NSPredicate(format: "isCompleted == %@", NSNumber(value: isCompleted))
         
         do {
             let tasks = try self.viewContext.fetch(fetchRequest)
@@ -51,8 +53,7 @@ class StorageManager {
         saveContext()
     }
     
-    func update(_ todo: Todo, newName: String) {
-        todo.name = newName
+    func update(_ todo: Todo) {
         saveContext()
     }
     

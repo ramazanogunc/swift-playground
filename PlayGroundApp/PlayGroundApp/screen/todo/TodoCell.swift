@@ -9,7 +9,14 @@ import UIKit
 import TinyConstraints
 import Kingfisher
 
+
+protocol TodoCellDelegate : AnyObject {
+    func didChangeCompleted(todo: Todo, isCompleted: Bool)
+}
+
 class TodoCell: UICollectionViewCell {
+    
+    weak var delegate: TodoCellDelegate?
     
     
     var data: Todo? {
@@ -24,12 +31,13 @@ class TodoCell: UICollectionViewCell {
     }
 
     
-    private let checkBox: CheckBox = {
+    private lazy var checkBox: CheckBox = {
         let cb = CheckBox()
         cb.isChecked = false
         cb.backgroundColor = .white
         cb.onChange = { isChecked in
-            
+            guard let data = self.data else { return }
+            self.delegate?.didChangeCompleted(todo: data, isCompleted: isChecked)
         }
         return cb
     }()

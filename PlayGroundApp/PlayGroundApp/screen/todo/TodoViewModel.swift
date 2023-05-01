@@ -11,16 +11,36 @@ class TodoViewModel : BaseViewModel {
     
     
     var todos: [Todo]  = []
+    var comletedTodos: [Todo]  = []
     
     
     var updateCollectionView : (()->Void)? = nil
+    var selectedIndex : Int = 0 {
+        didSet {
+            updateCollectionView?()
+        }
+    }
+    
+    func activeList() -> [Todo] {
+        if selectedIndex == 0 {
+            return todos
+        }
+        return comletedTodos
+    }
     
     
     func fetchData() {
         StorageManager.shared.fetchData { result in
             switch result {
             case .success(let todos):
-                self.todos = todos
+                for todo in todos {
+                    if todo.isCompleted {
+                        self.comletedTodos.append(todo)
+                    } else {
+                        self.todos.append(todo)
+                    }
+                }
+                updateCollectionView?()
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -32,6 +52,22 @@ class TodoViewModel : BaseViewModel {
             self.todos.append(todo)
             updateCollectionView?()
         }
+    }
+    
+    func updateTodo(todo: Todo, isCompleted: Bool) {
+        todo.isCompleted = isCompleted
+        if isCompleted {
+            self.todos.removeAll { $0.id == todo.id }
+            self.comletedTodos.append(todo)
+        }
+        else {
+            self.comletedTodos.removeAll { $0.id == todo.id }
+            self.todos.append(todo)
+        }
+        print("todos")
+        
+        StorageManager.shared.update(todo)
+        updateCollectionView?()
     }
     
     func delete() {
