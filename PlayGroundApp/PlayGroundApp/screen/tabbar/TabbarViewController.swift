@@ -30,12 +30,13 @@ extension TabbarViewController {
     
     private func setupViews() {
         view.backgroundColor = .white
+        title = "Flow Collection View Controller"
         setupTabbar()
     }
     
     private func setupTabbar() {
         viewControllers = [
-            createNavController(for: UIViewController(), title: NSLocalizedString("Home", comment: ""), image: UIImage(systemName: "house")!),
+            createNavController(for: FlowCollectionViewController(), title: NSLocalizedString("Flow", comment: ""), image: UIImage(systemName: "house")!),
             createNavController(for: UIViewController(), title: NSLocalizedString("Search", comment: ""), image: UIImage(systemName: "magnifyingglass")!)
         ]
     }

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		321220942A000667009CCCB8 /* DeleteAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321220932A000667009CCCB8 /* DeleteAlertController.swift */; };
+		321220982A001125009CCCB8 /* FlowCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321220972A001125009CCCB8 /* FlowCollectionViewModel.swift */; };
+		3212209A2A00121E009CCCB8 /* StandardPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 321220992A00121E009CCCB8 /* StandardPicker.swift */; };
+		3212209C2A0016ED009CCCB8 /* FlowCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3212209B2A0016ED009CCCB8 /* FlowCollectionViewController.swift */; };
+		3212209E2A001D12009CCCB8 /* FlowCellCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3212209D2A001D12009CCCB8 /* FlowCellCollectionViewCell.swift */; };
 		3224AC9529F1C623003B372C /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3224AC9429F1C623003B372C /* TabbarViewController.swift */; };
 		323B179629FAE9CB00904B4C /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B179529FAE9CB00904B4C /* CheckBox.swift */; };
 		323B179929FAEC5C00904B4C /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 323B179829FAEC5C00904B4C /* StorageManager.swift */; };
@@ -58,6 +62,10 @@
 		093807B76A28DAB5B8CDE7C0 /* Pods_PlayGroundApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlayGroundApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		19A003DA53C5401789C3F1AB /* Pods-PlayGroundApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlayGroundApp.release.xcconfig"; path = "Target Support Files/Pods-PlayGroundApp/Pods-PlayGroundApp.release.xcconfig"; sourceTree = "<group>"; };
 		321220932A000667009CCCB8 /* DeleteAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAlertController.swift; sourceTree = "<group>"; };
+		321220972A001125009CCCB8 /* FlowCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCollectionViewModel.swift; sourceTree = "<group>"; };
+		321220992A00121E009CCCB8 /* StandardPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandardPicker.swift; sourceTree = "<group>"; };
+		3212209B2A0016ED009CCCB8 /* FlowCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCollectionViewController.swift; sourceTree = "<group>"; };
+		3212209D2A001D12009CCCB8 /* FlowCellCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCellCollectionViewCell.swift; sourceTree = "<group>"; };
 		3224AC9429F1C623003B372C /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
 		323B179529FAE9CB00904B4C /* CheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		323B179829FAEC5C00904B4C /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
@@ -135,6 +143,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		321220952A000F75009CCCB8 /* flow */ = {
+			isa = PBXGroup;
+			children = (
+				321220972A001125009CCCB8 /* FlowCollectionViewModel.swift */,
+				3212209B2A0016ED009CCCB8 /* FlowCollectionViewController.swift */,
+				3212209D2A001D12009CCCB8 /* FlowCellCollectionViewCell.swift */,
+			);
+			path = flow;
+			sourceTree = "<group>";
+		};
 		3222B68629F568C500C7AAB6 /* character */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +166,7 @@
 		3224AC9329F1C5EC003B372C /* tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				321220952A000F75009CCCB8 /* flow */,
 				3224AC9429F1C623003B372C /* TabbarViewController.swift */,
 			);
 			path = tabbar;
@@ -258,6 +277,7 @@
 				3287986A29EC94C000C6B2CE /* UILoadingIndicator.swift */,
 				323B179529FAE9CB00904B4C /* CheckBox.swift */,
 				321220932A000667009CCCB8 /* DeleteAlertController.swift */,
+				321220992A00121E009CCCB8 /* StandardPicker.swift */,
 			);
 			path = component;
 			sourceTree = "<group>";
@@ -472,10 +492,12 @@
 				328408BE29E8575400D72C92 /* UIViewControllerExtensions.swift in Sources */,
 				323B179929FAEC5C00904B4C /* StorageManager.swift in Sources */,
 				32B7A03829F4230B00A2C2A9 /* NetworkClientResult.swift in Sources */,
+				3212209C2A0016ED009CCCB8 /* FlowCollectionViewController.swift in Sources */,
 				32B7A03129F41D0F00A2C2A9 /* NetworkClient.swift in Sources */,
 				32B7A04829F4458400A2C2A9 /* GetAllCharactersRequest.swift in Sources */,
 				32DD1D6829E74B450092F4A5 /* ExampleViewController.swift in Sources */,
 				323B179629FAE9CB00904B4C /* CheckBox.swift in Sources */,
+				321220982A001125009CCCB8 /* FlowCollectionViewModel.swift in Sources */,
 				32B7A04C29F4547800A2C2A9 /* CharacterCell.swift in Sources */,
 				323B179C29FAECCC00904B4C /* TodoCoreData.xcdatamodeld in Sources */,
 				32B7A04029F4446E00A2C2A9 /* PagingInfo.swift in Sources */,
@@ -498,7 +520,9 @@
 				32B7A03429F41DB700A2C2A9 /* RequestProtocol.swift in Sources */,
 				32721E3829E69E9C00CE376A /* SceneDelegate.swift in Sources */,
 				32721E6829E6A09D00CE376A /* SideMenuViewController.swift in Sources */,
+				3212209A2A00121E009CCCB8 /* StandardPicker.swift in Sources */,
 				32B7A03C29F43EAF00A2C2A9 /* Post.swift in Sources */,
+				3212209E2A001D12009CCCB8 /* FlowCellCollectionViewCell.swift in Sources */,
 				32A47A9D29F9A24400AC1478 /* TodoViewController.swift in Sources */,
 				32B7A04229F4449900A2C2A9 /* Character.swift in Sources */,
 				32721E6629E6A09D00CE376A /* ContentViewControllerPresentation.swift in Sources */,
