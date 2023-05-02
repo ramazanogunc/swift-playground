@@ -20,8 +20,6 @@ class FlowCollectionViewController : ContentViewController {
         layout.minimumLineSpacing = 0
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.isUserInteractionEnabled = true
-//        collectionView.alwaysBounceHorizontal = true
-//        collectionView.ite
         collectionView.register(FlowCellCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         return collectionView
     }()
@@ -37,8 +35,6 @@ class FlowCollectionViewController : ContentViewController {
     }()
     
     private let picker: StandardPicker = StandardPicker()
-    
-    private let stackView = UIStackView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,13 +50,6 @@ class FlowCollectionViewController : ContentViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         self.collectionView.collectionViewLayout.invalidateLayout()
-//        coordinator.animate(alongsideTransition: {(_) in
-//            self.collectionView.isPagingEnabled = false
-//            let indexPath = IndexPath(item: self.pageControl.currentPage, section: 0)
-//            self.collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
-//        }, completion: { (_) in
-//            self.collectionView.isPagingEnabled = true
-//        })
     }
     
     @objc private func clickChangeColumn(_ sender: UIButton!) {
@@ -131,7 +120,7 @@ extension FlowCollectionViewController : UICollectionViewDataSource, UICollectio
         
 }
 
-
+// MARK: CELL DELEGATE
 extension FlowCollectionViewController : StandardPickerDelegate {
     func didSelect(option: String) {
         if let option = Double(option) {
