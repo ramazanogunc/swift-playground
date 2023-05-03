@@ -54,7 +54,7 @@ class TodoViewController: ContentViewController {
     private let segmentControl : UISegmentedControl = {
        let sc = UISegmentedControl()
         sc.insertSegment(withTitle: "Todos", at: 0, animated: true)
-        sc.insertSegment(withTitle: "Comleted", at: 1, animated: true)
+        sc.insertSegment(withTitle: "Completed", at: 1, animated: true)
         sc.addTarget(self, action: #selector(changeSegment), for: .valueChanged)
         sc.selectedSegmentIndex = 0
         return sc
@@ -75,7 +75,7 @@ class TodoViewController: ContentViewController {
     
     private func updateSegmentsTitle() {
         self.segmentControl.setTitle("Todos(\(viewModel.todos.count))", forSegmentAt: 0)
-        self.segmentControl.setTitle("Comleted(\(viewModel.comletedTodos.count))", forSegmentAt: 1)
+        self.segmentControl.setTitle("Completed(\(viewModel.comletedTodos.count))", forSegmentAt: 1)
     }
     
     
